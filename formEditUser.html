@@ -1,0 +1,62 @@
+<div class="modal-header header-modal-default">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+  <h4 class="modal-title font-roboto"><strong>Editar Funcionário</strong></h4>
+</div>
+
+<div class="modal-body">
+  <form name="editUserForm">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" ng-model="getUniqueUsersList.id" class="form-control" name="id" id="id" ng-disabled="true">
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" ng-required="!getUniqueUsersList.nome" ng-model="getUniqueUsersList.nome" class="form-control" name="nome" id="nome">
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" ng-required="!getUniqueUsersList.telefone" ng-model="getUniqueUsersList.telefone" class="form-control" name="telefone" id="telefone">
+        </div>
+      </div>
+
+      <div class="col-sm-9">
+        <div class="form-group">
+          <label for="endereco">Endereço</label>
+          <input type="text" ng-required="!getUniqueUsersList.endereco" ng-model="getUniqueUsersList.endereco" class="form-control" name="endereco" id="endereco">
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="dataAdmissao">Data de Admissão</label>
+          <input placeholder="Ex: 01/01/1999" type="text" ng-required="!getUniqueUsersList.dataAdmissao" ng-model="getUniqueUsersList.dataAdmissao" class="form-control" name="dataAdmissao" id="dataAdmissao">
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-success pull-left" ng-click="editarUserSave()"
+      ng-disabled="editUserForm.$invalid">
+        <i class="fa fa-save"></i>
+        <span> Salvar</span>
+      </button>
+      <button type="button" class="btn btn-default pull-right" ng-click="closeModal()">
+        <i class="fa fa-times"></i>
+        <span> Fechar</span>
+      </button>
+    </div>
+  </div>
+</div>

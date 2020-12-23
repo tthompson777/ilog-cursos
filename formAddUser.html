@@ -1,0 +1,62 @@
+<div class="modal-header header-modal-default">
+    <button type="button" class="close" ng-click="closeModal()" aria-hidden="true">×</button>
+    <h4 class="modal-title">Adicionar Novo Funcionário</h4>
+  </div>
+  
+  <div class="modal-body">
+    <form name="editUserForm">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" name="id" id="id" ng-disabled="true">
+          </div>
+        </div>
+  
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" ng-required="!modelAddUser.nome" ng-model="modelAddUser.nome" class="form-control" name="nome" id="nome">
+          </div>
+        </div>
+  
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" ng-required="!modelAddUser.telefone" ng-model="modelAddUser.telefone" class="form-control" name="telefone" id="telefone">
+          </div>
+        </div>
+  
+        <div class="col-sm-9">
+          <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" ng-required="!modelAddUser.endereco" ng-model="modelAddUser.endereco" class="form-control" name="endereco" id="endereco">
+          </div>
+        </div>
+  
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="dataAdmissao">Data de Admissão</label>
+            <input placeholder="Ex: 01/01/1999" type="text" ng-required="!modelAddUser.dataAdmissao" ng-model="modelAddUser.dataAdmissao" class="form-control" name="dataAdmissao" id="dataAdmissao">
+          </div>
+        </div>
+  
+      </div>
+    </form>
+  </div>
+  
+  <div class="modal-footer">
+    <div class="row">
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-success pull-left" ng-click="addUserConfirm(modelAddUser)"
+        ng-disabled="editUserForm.$invalid">
+          <i class="fa fa-save"></i>
+          <span> Salvar</span>
+        </button>
+        <button type="button" class="btn btn-default pull-right" ng-click="closeModal()">
+          <i class="fa fa-times"></i>
+          <span> Fechar</span>
+        </button>
+      </div>
+    </div>
+  </div>

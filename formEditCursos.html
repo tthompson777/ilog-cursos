@@ -1,0 +1,62 @@
+<div class="modal-header header-modal-default">
+  <button type="button" class="close"  ng-click="closeModal()" aria-hidden="true">×</button>
+  <h4 class="modal-title font-roboto"><strong>Editar Funcionário</strong></h4>
+</div>
+
+<div class="modal-body">
+  <form name="editCursoForm">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" ng-model="getUniqueCursoList.id" class="form-control" name="id" id="id" ng-disabled="true">
+        </div>
+      </div>
+
+      <div class="col-sm-10">
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <input type="text" ng-required="!getUniqueCursoList.titulo" ng-model="getUniqueCursoList.titulo" class="form-control" name="titulo" id="titulo">
+        </div>
+      </div>
+
+      <div class="col-sm-5">
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <input type="text" ng-required="!getUniqueCursoList.descricao" ng-model="getUniqueCursoList.descricao" class="form-control" name="descricao" id="descricao">
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="cargH">Carga Horária</label>
+          <input placeholder="Somente Números" type="text" ng-required="!getUniqueCursoList.cargH" ng-model="getUniqueCursoList.cargH" class="form-control" name="cargH" id="cargH">
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="valor">Valor</label>
+          <input placeholder="Ex: 99,00" type="text" ng-required="!getUniqueCursoList.valor" ng-model="getUniqueCursoList.valor" class="form-control" name="valor" id="valor">
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-success pull-left" ng-click="editarCursoSave()"
+      ng-disabled="editCursoForm.$invalid">
+        <i class="fa fa-save"></i>
+        <span> Salvar</span>
+      </button>
+      <button type="button" class="btn btn-default pull-right" ng-click="closeModal()">
+        <i class="fa fa-times"></i>
+        <span> Fechar</span>
+      </button>
+    </div>
+  </div>
+</div>

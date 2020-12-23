@@ -1,0 +1,159 @@
+<div ng-app="routingApp">
+  <div class="content-tables">
+    <div ng-controller="geralController">
+
+      <!-- Tabela de Cursos -->
+      <div class="container-tables">
+        <div class="row">
+          <div class="col-sm-5 pull-left">
+            <h3 class="font-ubuntu"><i class="fas fa-graduation-cap"></i> Cursos</h3>
+          </div>
+          <div class="col-sm-4 pull-right">
+            <input class="form-control" ng-model="searchText" placeholder="Pesquisar...">
+            <i class="fas fa-search icon-search"></i>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="max-height-table-300">
+              <table class="table table-hover table-striped export-table">
+                <thead class="thead-gray">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Carga Horária</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="row in getAllCursosList | filter:searchText">
+                    <td>{{row.id}}</td>
+                    <td>{{row.titulo}}</td>
+                    <td>{{row.descricao}}</td>
+                    <td>R$ {{row.valor}}</td>
+                    <td>{{row.cargH}} <span ng-if="row.cargH == 1">Hora</span> <span ng-if="row.cargH > 1">Horas</span>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-success btn-xs" ng-click="editCursoModal(row)">
+                        <i class="fa fa-edit"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn btn-danger btn-xs" ng-click="modalConfirmarExclusaoCurso(row)">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+            <button type="button" class="btn btn-primary btn-sm" ng-click="modalAddCurso()">
+              <i class="fa fa-plus"></i>
+              <span> Adicionar Curso</span>
+            </button>
+
+            <button type="button" class="btn btn-success btn-sm" data-ng-click="exportAction('excel')">
+              <i class="fas fa-file-excel"></i>
+              <span> Exportar Excel</span>
+            </button>
+
+            <button type="button" class="btn btn-info btn-sm" data-ng-click="exportAction('doc')">
+              <i class="fas fa-file-word"></i>
+              <span> Exportar Doc</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-sm" data-ng-click="exportAction('csv')">
+              <i class="fas fa-file-csv"></i>
+              <span> Exportar CSV</span>
+            </button>
+
+            <button type="button" class="btn btn-danger btn-sm" data-ng-click="exportAction('pdf')">
+              <i class="far fa-file-pdf"></i>
+              <span> Exportar PDF</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Funcionários Inscritos -->
+      <div class="container-tables margin-top-20">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3 class="font-ubuntu"><i class="fas fa-id-card"></i> Funcionários Inscritos</h3>
+            <div class="max-height-table-300">
+              <div>
+              </div>
+              <table class="table table-hover table-striped export-table">
+                <thead class="thead-gray">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Data de Admissão</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="row in getAllUsersList | filter:searchText">
+                    <td>{{row.id}}</td>
+                    <td>{{row.nome}}</td>
+                    <td>{{row.telefone}}</td>
+                    <td>{{row.endereco}}</td>
+                    <td>{{row.dataAdmissao}}</td>
+                    <td>
+                      <button type="button" class="btn btn-danger btn-xs" ng-click="modalConfirmarExclusao(row)">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <hr>
+            <button type="button" class="btn btn-success btn-sm" data-ng-click="exportAction('excel')">
+              <i class="fas fa-file-excel"></i>
+              <span> Exportar Excel</span>
+            </button>
+
+            <button type="button" class="btn btn-info btn-sm" data-ng-click="exportAction('doc')">
+              <i class="fas fa-file-word"></i>
+              <span> Exportar Doc</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-sm" data-ng-click="exportAction('csv')">
+              <i class="fas fa-file-csv"></i>
+              <span> Exportar CSV</span>
+            </button>
+
+            <button type="button" class="btn btn-danger btn-sm" data-ng-click="exportAction('pdf')">
+              <i class="far fa-file-pdf"></i>
+              <span> Exportar PDF</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ui-view></ui-view>
+    </div>
+  </div>
+</div>

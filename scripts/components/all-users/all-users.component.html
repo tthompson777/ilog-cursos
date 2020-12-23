@@ -1,0 +1,91 @@
+<div ng-app="routingApp">
+  <div class="container">
+    <div class="container-tables" ng-controller="geralController">
+
+      <!-- Tabela de Usuários -->
+      <div class="row">
+        <div class="col-sm-5 pull-left">
+          <h3 class="font-ubuntu"><i class="fas fa-id-card"></i> Funcionários</h3>
+        </div>
+        <div class="col-sm-4 pull-right">
+          <input class="form-control" ng-model="searchText" placeholder="Pesquisar...">
+          <i class="fas fa-search icon-search"></i>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="max-height-table-500">
+            <div>
+            </div>
+            <table class="table table-hover table-striped export-table">
+              <thead class="thead-gray">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">Endereço</th>
+                  <th scope="col">Data de Admissão</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="row in getAllUsersList | filter:searchText">
+                  <td>{{row.id}}</td>
+                  <td>{{row.nome}}</td>
+                  <td>{{row.telefone}}</td>
+                  <td>{{row.endereco}}</td>
+                  <td>{{row.dataAdmissao}}</td>
+                  <td>
+                    <button type="button" class="btn btn-success btn-xs" ng-click="editUserModal(row)">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="modalConfirmarExclusao(row)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <hr>
+          <button type="button" class="btn btn-primary btn-sm" ng-click="modalAddUser()">
+            <i class="fa fa-plus"></i>
+            <span>Adicionar Funcionário</span>
+          </button>
+          <button type="button" class="btn btn-success btn-sm" data-ng-click="exportAction('excel')">
+            <i class="fas fa-file-excel"></i>
+            <span> Exportar Excel</span>
+          </button>
+
+          <button type="button" class="btn btn-info btn-sm" data-ng-click="exportAction('doc')">
+            <i class="fas fa-file-word"></i>
+            <span> Exportar Doc</span>
+          </button>
+
+          <button type="button" class="btn btn-default btn-sm" data-ng-click="exportAction('csv')">
+            <i class="fas fa-file-csv"></i>
+            <span> Exportar CSV</span>
+          </button>
+
+          <button type="button" class="btn btn-danger btn-sm" data-ng-click="exportAction('pdf')">
+            <i class="far fa-file-pdf"></i>
+            <span> Exportar PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <ui-view></ui-view>
+    </div>
+  </div>
+</div>
