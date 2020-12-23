@@ -276,6 +276,11 @@ div {
   text-decoration: underline;
 }
 
+.navbar-logo-img {
+  height: 60px;
+  margin-top: -7px;
+}
+
 /* Media Query */
 /* 
   ##Device = Tablets, Ipads (Paisagem)
@@ -284,8 +289,12 @@ div {
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
-  .section-options, .section-info, .section-info-2, #myFooter {
+  .section-options, .section-info, .section-info-2 {
     width: 142%;
+  }
+  #myFooter {
+    width: 142%;
+    margin-top: 220px !important;
   }
   .container-sections {
     width: 123vw !important;
@@ -297,6 +306,9 @@ div {
   .navbar-logo-img {
     height: 45px;
   }
+  .navbar-nav>li>a {
+    font-size: 2em !important;
+  }
 }
 
 /* 
@@ -306,7 +318,16 @@ div {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
-  /* CSS */
+  .navbar-nav>li>a {
+    font-size: 2em !important;
+  }
+  .navbar-logo-img {
+    height: 60px !important;
+    margin-left: -18px !important;
+  }
+  .navbar-nav>li>a {
+    font-size: 2em !important;
+  }
 
 }
 
@@ -323,6 +344,9 @@ div {
   .content-tables {
     padding-left: 45px;
   }
+  .navbar-nav>li>a {
+    font-size: 3em !important;
+  }
   
 }
 
@@ -338,6 +362,9 @@ div {
   }
   .content-tables {
     padding-left: 45px;
+  }
+  .navbar-nav>li>a {
+    font-size: 3em !important;
   }
   
 }
