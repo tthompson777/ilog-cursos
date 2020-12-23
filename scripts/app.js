@@ -205,13 +205,20 @@ routingApp.controller('geralController', function ($scope, $http, $uibModal, $ui
 });
 
 // Config
-routingApp.config(function ($stateProvider) {
+routingApp.config(function ($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/home');
 
   // Rotas
   var states = [{
       name: 'home',
       url: '/home',
-      component: 'home'
+      component: 'home',
+      resolve: {
+        users: function () {
+          //
+        }
+      }
     },
     {
       name: 'users',

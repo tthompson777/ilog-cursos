@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
-  <link href="./assets/favicon.ico" rel="icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-icon-180x180.png">
+  <link rel="icon" href="./assets/images/favicon.png" />
 
   <!-- fontawesome -->
   <link href="./assets/fonts/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet"> <!-- Todos os Estilos -->
@@ -50,16 +50,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.html" title="">
-            <img src="./assets/images/logo-01.png" class="navbar-logo-img" alt="" style="height: 60px; margin-top: -7px;">
+          <a ui-sref="home" class="navbar-brand" href="./index.html" title="">
+            <img src="./assets/images/logo-01.png" class="navbar-logo-img" alt=""
+              style="height: 60px; margin-top: -7px;">
           </a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-active"><a ui-sref="home" ui-sref-active="active"><i class="fas fa-home"></i> Home</a></li>
-            <li class="navbar-active"><a ui-sref="cursos" ui-sref-active="active"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
-            <li class="navbar-active"><a ui-sref="users" ui-sref-active="active"><i class="fas fa-id-card"></i> Funcionários</a></li>
+            <li class="navbar-active"><a ui-sref="home" ui-sref-active="active"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="navbar-active"><a ui-sref="cursos" ui-sref-active="active"><i class="fas fa-graduation-cap"></i>
+                Cursos</a></li>
+            <li class="navbar-active"><a ui-sref="users" ui-sref-active="active"><i class="fas fa-id-card"></i>
+                Funcionários</a></li>
           </ul>
         </div>
       </div>
@@ -71,13 +75,13 @@
     var header = document.getElementById("navbar-collapse");
     var btns = header.getElementsByClassName("navbar-active");
     for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
       });
     }
-    </script>
+  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function (event) {
@@ -85,12 +89,12 @@
     });
   </script>
 
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", function (event) {
       navActivePage();
       scrollRevelation('.reveal');
     });
-  </script>
+  </script> -->
 
   <ui-view></ui-view>
 
